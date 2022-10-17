@@ -27,22 +27,22 @@ class TestGameGeneration:
     def test_bot_none(self):
         """Проверка количества ботов при вызове без параметров"""
         player1, player2, _ = Game.game_generation()
-        assert player1.bot == False and player2.bot == False
+        assert player1.bot is False and player2.bot is False
 
     def test_bot_0(self):
         """Проверка количества ботов при вызове с параметром 0"""
         player1, player2, _ = Game.game_generation(0)
-        assert player1.bot == False and player2.bot == False
+        assert player1.bot is False and player2.bot is False
 
     def test_bot_1(self):
         """Проверка количества ботов при вызове с параметром 1"""
         player1, player2, _ = Game.game_generation(1)
-        assert player1.bot == False and player2.bot == True
+        assert player1.bot is False and player2.bot is True
 
     def test_bot_2(self):
         """Проверка количества ботов при вызове с параметром 2"""
         player1, player2, _ = Game.game_generation(2)
-        assert player1.bot == True and player2.bot == True
+        assert player1.bot is True and player2.bot is True
 
     @pytest.mark.parametrize(
         'bot_count', [
@@ -52,7 +52,7 @@ class TestGameGeneration:
     def test_bot_smaller_than_0(self, bot_count):
         """Проверка количества ботов при вызове с параметром меньше 0"""
         player1, player2, _ = Game.game_generation(bot_count)
-        assert player1.bot == False and player2.bot == False
+        assert player1.bot is False and player2.bot is False
 
     @pytest.mark.parametrize(
         'bot_count', [
@@ -62,7 +62,7 @@ class TestGameGeneration:
     def test_bot_more_than_2(self, bot_count):
         """Проверка количества ботов при вызове с параметром больше 2"""
         player1, player2, _ = Game.game_generation(bot_count)
-        assert player1.bot == True and player2.bot == True
+        assert player1.bot is True and player2.bot is True
 
     def test_bot_is_str(self):
         """Проверка возвращаемого значения при вызове с параметром типа str"""

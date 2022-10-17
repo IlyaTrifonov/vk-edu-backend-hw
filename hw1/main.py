@@ -57,10 +57,8 @@ class TicTacToe:
         В случае введния значения меньше 0, будет выбран 0, больше 2 — 2.
         """
         print('Происходит генерация игры...\n')
-        if bot_count > 2:
-            bot_count = 2
-        if bot_count < 0:
-            bot_count = 0
+        bot_count = min(bot_count, 2)
+        bot_count = max(bot_count, 0)
         if random.choice([True, False]):
             player1, player2 = Player(1, 'X'), Player(2, 'O')
         else:
