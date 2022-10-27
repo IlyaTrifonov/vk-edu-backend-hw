@@ -37,6 +37,7 @@ class TicTacToe:
         None в случае если команда не валидная.
         """
         try:
+            # лучше проверять на число с помощью isdigit
             command = int(command)
             if command not in valid_comands:
                 raise NotACommandException()
@@ -101,7 +102,8 @@ class TicTacToe:
             command = self.validate_input(command, [-1] + list(range(1, 10)))
             if not command:
                 continue
-
+            # Лучше объединить валидарторы
+            # Выносим все константы в переменные
             if command == -1:
                 print(f'\nИгра завершена пользователем {current_player}')
                 break
@@ -140,6 +142,7 @@ class TicTacToe:
             print('4. Правила.')
             print('5. Выйти из игры.')
             command = input('> ')
+            # Вывести константы на уровне класса, чтобы для сравнения был вызов через имя
             if command == '1':
                 if not self.rules_is_viewed:
                     self.show_rules()
@@ -168,6 +171,7 @@ class TicTacToe:
         False - игра не закончена
         """
 
+        # Лучше вынести захардкоженные данные в инит
         solution = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7],
                     [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
 
